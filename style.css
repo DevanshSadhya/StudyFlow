@@ -1,0 +1,273 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1419;
+  --bg-elevated: #1a222c;
+  --bg-input: #12181f;
+  --border: #2c3846;
+  --text: #e8eef4;
+  --muted: #9aa8b6;
+  --accent: #6ee7b7;
+  --accent-text: #062016;
+  --danger: #f2a0a0;
+  --danger-bg: #3a1f24;
+  --focus: #93c5fd;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --radius: 16px;
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background:
+    radial-gradient(circle at top right, #1c3340 0%, transparent 42%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 0.85rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.page {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+}
+
+.header h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-size: clamp(1.7rem, 4vw, 2.25rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lede,
+.footer {
+  color: var(--muted);
+}
+
+.lede {
+  margin: 0 0 1.75rem;
+  max-width: 38rem;
+}
+
+.panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.panel + .panel {
+  margin-top: 1rem;
+}
+
+#task-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text);
+  font: inherit;
+}
+
+input[type="text"]::placeholder {
+  color: #6d7c8b;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.button-primary,
+.button-danger {
+  border: 0;
+  border-radius: 10px;
+  font-weight: 650;
+}
+
+.button-primary {
+  justify-self: start;
+  padding: 0.7rem 1.1rem;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.button-danger {
+  padding: 0.4rem 0.7rem;
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.form-error {
+  margin: 0.85rem 0 0;
+  color: var(--danger);
+}
+
+.storage-error {
+  margin: 0.85rem 0 0;
+  padding: 0.75rem 0.85rem;
+  background: var(--danger-bg);
+  border: 1px solid var(--danger);
+  border-radius: 10px;
+  color: var(--danger);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.list-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.list-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.task-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 1.1rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  background: rgba(15, 20, 25, 0.45);
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-input);
+}
+
+.task-item input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+}
+
+.task-item label {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.task-item.is-complete label {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.footer {
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  #task-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .field {
+    grid-column: 1;
+  }
+
+  .button-primary {
+    grid-column: 2;
+  }
+}

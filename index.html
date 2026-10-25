@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyFlow — Student Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#task-input">Skip to add task</a>
+
+    <div class="page">
+      <header class="header">
+        <p class="eyebrow">StudyFlow</p>
+        <h1>Keep your study tasks in one place</h1>
+        <p class="lede">
+          Add homework, mark it complete, and delete what you no longer need.
+          Your list is saved in this browser only.
+        </p>
+      </header>
+
+      <main>
+        <section class="panel" aria-labelledby="add-heading">
+          <h2 id="add-heading" class="visually-hidden">Add a task</h2>
+          <form id="task-form">
+            <div class="field">
+              <label for="task-input">New task</label>
+              <input
+                id="task-input"
+                name="task"
+                type="text"
+                maxlength="200"
+                autocomplete="off"
+                placeholder="e.g. Review chapter 4 notes"
+                aria-describedby="form-error"
+              />
+            </div>
+            <button type="submit" class="button-primary">Add task</button>
+          </form>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <p id="storage-error" class="storage-error" role="status" hidden></p>
+        </section>
+
+        <section class="panel" aria-labelledby="list-heading">
+          <div class="list-header">
+            <h2 id="list-heading">Your tasks</h2>
+            <p id="task-count" class="task-count"></p>
+          </div>
+
+          <p id="empty-state" class="empty-state">
+            No tasks yet. Add your first study task above and it will appear
+            here.
+          </p>
+
+          <ul id="task-list" class="task-list"></ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Tasks are stored in this browser’s localStorage. That is a small local
+          notebook, not a lockbox. Do not save passwords, login tokens, or
+          sensitive personal data here.
+        </p>
+        <p id="status" class="visually-hidden" aria-live="polite"></p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
